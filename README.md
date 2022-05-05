@@ -29,7 +29,7 @@
 ## 2. Audio-Arousal Model
 ### 모델 구조
   - AudioExtractor
-![audio_arousal](https://user-images.githubusercontent.com/20739007/167012301-37877c91-e955-40f3-ae57-340ac0bccab6.png)
+    * Kernel Size를 (1, 4)로 설정하여 Frequency 방향으로는 인접한 Frequency 간의 관계적 특징을 추출하고, Time 방향으로는 시간 정보를 독립적으로 유지하도록 특징 
 
-<img src = "https://user-images.githubusercontent.com/20739007/167011885-39e39328-91c4-4da2-99c0-763a464944c0.png width="400" height="200"/>
-    * 
+![audio_arousal](https://user-images.githubusercontent.com/20739007/167012301-37877c91-e955-40f3-ae57-340ac0bccab6.png)
+ 
