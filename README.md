@@ -29,5 +29,7 @@
 ## 2. Audio-Arousal Model
 ### 모델 구조
   - AudioExtractor
+![audio_arousal](https://user-images.githubusercontent.com/20739007/167012301-37877c91-e955-40f3-ae57-340ac0bccab6.png)
+
 <img src = "https://user-images.githubusercontent.com/20739007/167011885-39e39328-91c4-4da2-99c0-763a464944c0.png width="400" height="200"/>
     * 
