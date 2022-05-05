@@ -12,11 +12,15 @@
  
 ![image](https://user-images.githubusercontent.com/20739007/167010497-0df6fd38-8542-4909-a513-5ed72c0d63df.png)
  
+ 
   - 텍스트 데이터
     * KoBERT의 tokenizer를 활용하여 토큰화
     * 단어 간 랜덤 위치 변환(Random Swap), 텍스트 중 단어 임의 삭제(Random Delete) 적용
+
+
   - 생체신호 데이터
     * IBI : 기록 주기가 불규칙하여 사용하지 않음
     * TEMP: 기록 주기가 규칙적이나 시계열 군집화 결과 감정 분류와 유의미한 관계 없음
     * EDA : 기록 주기가 규칙적이나 누락된 Session이 존재하여 사용하지 않음
-3. 
+
+![image](https://user-images.githubusercontent.com/20739007/167011063-d0904346-90ec-4062-87ea-dd86d2307ccc.png) 
