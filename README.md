@@ -29,7 +29,35 @@
 ## 2. Audio-Arousal Model
 ### 모델 구조
   - AudioExtractor
-    * Kernel Size를 (1, 4)로 설정하여 Frequency 방향으로는 인접한 Frequency 간의 관계적 특징을 추출하고, Time 방향으로는 시간 정보를 독립적으로 유지하도록 특징 
+    * Kernel Size를 (1, 4)로 설정하여 Frequency 방향으로는 인접한 Frequency 간의 관계적 특징을 추출하고, Time 방향으로는 시간 정보를 독립적으로 유지하도록 특징 추출
 
 ![audio_arousal](https://user-images.githubusercontent.com/20739007/167012301-37877c91-e955-40f3-ae57-340ac0bccab6.png)
+
+  - Multihead Attention + GRU
+    * Multihead Attention 학습 레이어를 반복하여 쌓아 Self Attention 계산
+    * 시간 정보를 독립적으로 유지하였기 때문에 GRU를 통해 시간적 정보를 고려한 Arousal 예측 진행
+
+
+## 3. Text-Arousal Model
+### 모델 구조
+  - KoBERT Embedding
+    * 사전학습된 KoBERT 모델을 기반으로 각 단어를 768차원의 벡터로 임베딩
+  - Multihead Attention + GRU
+    * Multihead Attention 학습 레이어를 반복하여 쌓아 Self Attention 계산
+    * BERT의 특성상 Positional Embedding을 통해 순서 정보가 내재되어 있으므로 GRU를 통해 시간적 정보를 고려한 Valence 예측 진행
+
+
+## 4. Multimodal Emotion Classifier
+### 모델 구조
+  - Audio
+    * Arousal을 예측하도록 학습된 AudioRegressor 모델의 예측 레이어 이전 Self Attention Value를 Audio Embedded Vector로 사용
+  - Text
+    * Valence를 예측하도록 학습된 TextRegressor 모델의 예측 레이어 이전 Self Attention Value를 Text Embedded Vector로 사용
+  - Classifier
+    * Audio Embedded Vector : torch.Size([batch_size, 512, 768])
+    * Text Embedded Vector : torch.Size([batch_size, 64, 768])
+    * Audio와 Text의 Embedded Vector를 연결하여 torch.Size([batch_size, 576, 768]) tensor 생성
+    * Multihead Attention을 통한 Self Attention 학습
+    * 최종 반환된 Attention Value을 LSTM에 통과시켜 감정 분류 진행
+
  
