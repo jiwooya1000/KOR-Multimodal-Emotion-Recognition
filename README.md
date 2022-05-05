@@ -4,7 +4,7 @@
 
 
 ## 1. Data Preprocessing
-### 1. 활용 데이터 선정 및 처리
+### 활용 데이터 선정 및 처리
   - 음성 데이터
     * Mel Spectrogram과 Mel Spectrogram의 1차 차분값을 stack하여 사용
     * Mel Spectrogram의 길이를 일정하게 통일시키기 위해 Zero Padding 적용
@@ -24,3 +24,9 @@
     * EDA : 기록 주기가 규칙적이나 누락된 Session이 존재하여 사용하지 않음
 
 ![image](https://user-images.githubusercontent.com/20739007/167011063-d0904346-90ec-4062-87ea-dd86d2307ccc.png) 
+
+
+## 2. Audio-Arousal Model
+### 모델 구조
+  - AudioExtractor
+    * 
