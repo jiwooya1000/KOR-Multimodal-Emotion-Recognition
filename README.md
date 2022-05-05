@@ -4,7 +4,7 @@
 
 
 ## 1. Data Preprocessing
-1. 활용 데이터 선정 및 처리
+### 1. 활용 데이터 선정 및 처리
   - 음성 데이터
     * Mel Spectrogram과 Mel Spectrogram의 1차 차분값을 stack하여 사용
     * Mel Spectrogram의 길이를 일정하게 통일시키기 위해 Zero Padding 적용
