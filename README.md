@@ -25,6 +25,13 @@
 
 ![image](https://user-images.githubusercontent.com/20739007/167011063-d0904346-90ec-4062-87ea-dd86d2307ccc.png) 
 
+### 데이터 불균형 보완
+  - 음성: Random Frequency Masking
+  - 텍스트: Random Swap, Random Deletion
+  - 데이터가 많은 happy와 neutral을 제외한 나머지 3개의 감정(sad, angry, surprise)에 대해 음성 증강, 텍스트 증강, 음성과 텍스트 증강을 각각 적용하여 250%까지 증강
+
+![image](https://user-images.githubusercontent.com/20739007/167014667-f73efc68-8c53-4534-a26d-f79afc78df64.png)
+
 
 ## 2. Audio-Arousal Model
 ### 모델 구조
