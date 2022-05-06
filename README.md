@@ -2,6 +2,13 @@
 2022 휴먼이해 인공지능 논문경진대회 참여 논문 *논문 제목*의 코드를 정리한 Repository입니다. 
 음성과 텍스트를 기반으로 감정 분류를 예측하기 위한 멀티모달 딥러닝 모델을 구현하였으며, 사람의 발화 음성을 바탕으로 각성도(Arousal)를 예측하는 모델과 발화 텍스트를 바탕으로 긍/부정도(Valence)를 예측하는 모델을 개별적으로 사전학습하여 멀티모달 감정 분류 모델의 성능을 향상시켰습니다.
 
+----
+### 코드 진행 순서
+#### 1. Data Preprocessing
+#### 2. Audio-Arousal Model
+#### 3. Text-Valence Model
+#### 4. Multimodal Emotion Classifier
+----
 
 ## 1. Data Preprocessing
 ### 활용 데이터 선정 및 처리
