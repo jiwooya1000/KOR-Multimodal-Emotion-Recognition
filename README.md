@@ -5,9 +5,15 @@
 ----
 ### 코드 진행 순서
 #### 1. Data Preprocessing
+        - 1-1. 데이터_취합.ipynb 실행 (Data_Original.pickle 파일 생성)
+        - 1-2. 데이터_증강.ipynb 실행 (train_aft_aug_kobert.pickle, valid_tokenized.pickle, test_tokenized.pickle 생성)
+        - 1-3. 시계열 군집화.R 실행 (bio1.pickle 사용)
 #### 2. Audio-Arousal Model
+        - 2-1. Audio_Arousal Model Train.ipynb 실행(audio_arouosal.pt 생성)
 #### 3. Text-Valence Model
+        = 3-1. Text_Valence Model Train.ipynb 실행(text_valence.pt 생성)
 #### 4. Multimodal Emotion Classifier
+        = 멀티모달_학습.ipynb 실행(Multi_Modal_Classifier_ye.pt 생성)
 ----
 
 ## 1. Data Preprocessing
