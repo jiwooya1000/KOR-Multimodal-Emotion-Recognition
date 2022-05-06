@@ -11,9 +11,9 @@
 #### 2. Audio-Arousal Model
         - 2-1. Audio_Arousal Model Train.ipynb 실행(audio_arouosal.pt 생성)
 #### 3. Text-Valence Model
-        = 3-1. Text_Valence Model Train.ipynb 실행(text_valence.pt 생성)
+        - 3-1. Text_Valence Model Train.ipynb 실행(text_valence.pt 생성)
 #### 4. Multimodal Emotion Classifier
-        = 멀티모달_학습.ipynb 실행(Multi_Modal_Classifier_ye.pt 생성)
+        - 멀티모달_학습.ipynb 실행(Multi_Modal_Classifier_ye.pt 생성)
 ----
 
 ## 1. Data Preprocessing
