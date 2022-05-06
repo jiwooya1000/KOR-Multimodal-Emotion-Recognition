@@ -1,28 +1,31 @@
 
 ##################################################################################
-# ¹ÙÀÌ¿À µ¥ÀÌÅÍ¿Í Emotion°£ÀÇ »ó°ü¼º È®ÀÎ
+# ë°”ì´ì˜¤ ë°ì´í„°ì™€ Emotionê°„ì˜ ìƒê´€ì„± í™•ì¸
 #
-# IBI  : ±â·Ï ÁÖ±â°¡ ºÒ±ÔÄ¢ÇÏ¿© ½Ã°è¿­ µ¥ÀÌÅÍ·Î »ç¿ë ºÒ°¡
-# TEMP : ½Ã°è¿­ µ¥ÀÌÅÍ·Î »ç¿ë °¡´É (´©¶ô µ¥ÀÌÅÍ Á¸Àç)
-# EDA  : ½Ã°è¿­ µ¥ÀÌÅÍ·Î »ç¿ë °¡´É (´©¶ô µ¥ÀÌÅÍ Á¸Àç)
+# IBI  : ê¸°ë¡ ì£¼ê¸°ê°€ ë¶ˆê·œì¹™í•˜ì—¬ ì‹œê³„ì—´ ë°ì´í„°ë¡œ ì‚¬ìš© ë¶ˆê°€
+# TEMP : ì‹œê³„ì—´ ë°ì´í„°ë¡œ ì‚¬ìš© ê°€ëŠ¥ (ëˆ„ë½ ë°ì´í„° ì¡´ìž¬)
+# EDA  : ì‹œê³„ì—´ ë°ì´í„°ë¡œ ì‚¬ìš© ê°€ëŠ¥ (ëˆ„ë½ ë°ì´í„° ì¡´ìž¬)
 #
-# ½Ã°è¿­ µ¥ÀÌÅÍÀÇ ¼ºÁúÀ» °¡Áö¸ç ±æÀÌ°¡ ´Ù¾çÇÑ TEMP¿Í EDA µ¥ÀÌÅÍ¿¡ ´ëÇÏ¿©
-# Dynamic Time Warping(DTW)¸¦ È°¿ëÇÑ ½Ã°è¿­ ±ºÁýÈ­¸¦ ÁøÇàÇÑ ÈÄ,
+# ì‹œê³„ì—´ ë°ì´í„°ì˜ ì„±ì§ˆì„ ê°€ì§€ë©° ê¸¸ì´ê°€ ë‹¤ì–‘í•œ TEMPì™€ EDA ë°ì´í„°ì— ëŒ€í•˜ì—¬
+# Dynamic Time Warping(DTW)ë¥¼ í™œìš©í•œ ì‹œê³„ì—´ êµ°ì§‘í™”ë¥¼ ì§„í–‰í•œ í›„,
 # 
-# 1) ÃÖÀûÀÇ ±ºÁý °³¼ö¿¡ ´ëÇÏ¿© ±ºÁýÈ­°¡ À¯ÀÇ¹ÌÇÏ°Ô ÀÌ·ç¾îÁö´Â°¡?
-# 2) EmotionÀÇ °¡Áþ¼ö¿Í µ¿ÀÏÇÑ °³¼ö·Î ±ºÁýÈ­¸¦ ÁøÇàÇÒ °æ¿ì À¯ÀÇ¹ÌÇÏ°Ô ÀÌ·ç¾îÁö´Â°¡?
+# 1) ìµœì ì˜ êµ°ì§‘ ê°œìˆ˜ì— ëŒ€í•˜ì—¬ êµ°ì§‘í™”ê°€ ìœ ì˜ë¯¸í•˜ê²Œ ì´ë£¨ì–´ì§€ëŠ”ê°€?
+# 2) Emotionì˜ ê°€ì§“ìˆ˜ì™€ ë™ì¼í•œ ê°œìˆ˜ë¡œ êµ°ì§‘í™”ë¥¼ ì§„í–‰í•  ê²½ìš° ìœ ì˜ë¯¸í•˜ê²Œ ì´ë£¨ì–´ì§€ëŠ”ê°€?
 #
-# À§ 2°¡Áö¿¡ ´ëÇÑ Æò°¡ ÁøÇà
+# ìœ„ 2ê°€ì§€ì— ëŒ€í•œ í‰ê°€ ì§„í–‰
 #
-# °á°ú
-#  - ÃÖÀûÀÇ ±ºÁý °³¼ö(n=5)¿¡ ´ëÇØ ±ºÁýÈ­°¡ À¯ÀÇ¹ÌÇÏÁö ¾Ê´Ù.
-#  - EmotionÀÇ °¡Áþ¼ö(n=5)¿¡ ´ëÇØ ±ºÁýÈ­°¡ À¯ÀÇ¹ÌÇÏÁö ¾Ê´Ù.
-#  - µû¶ó¼­, 3°¡Áö »ýÃ¼½ÅÈ£ µ¥ÀÌÅÍ ¸ðµÎ Emotion ¿¹Ãø¿¡¼­ ¹èÁ¦ÇÑ´Ù.
+# ê²°ê³¼
+#  - ìµœì ì˜ êµ°ì§‘ ê°œìˆ˜(n=5)ì— ëŒ€í•´ êµ°ì§‘í™”ê°€ ìœ ì˜ë¯¸í•˜ì§€ ì•Šë‹¤.
+#  - Emotionì˜ ê°€ì§“ìˆ˜(n=5)ì— ëŒ€í•´ êµ°ì§‘í™”ê°€ ìœ ì˜ë¯¸í•˜ì§€ ì•Šë‹¤.
+#  - ë”°ë¼ì„œ, 3ê°€ì§€ ìƒì²´ì‹ í˜¸ ë°ì´í„° ëª¨ë‘ Emotion ì˜ˆì¸¡ì—ì„œ ë°°ì œí•œë‹¤.
+#
+#   --- bio1.pickleì€ '1-1. ë°ì´í„° ì·¨í•©.ipynb'ì˜ Data_Original.pickle íŒŒì¼ì—ì„œ Emotionì— One-Hot Encodingì„ ì§„í–‰í•œ íŒŒì¼ìž…ë‹ˆë‹¤ ---
+#
 ##################################################################################
 
 library(reticulate)
 
-# pickle ÆÄÀÏÀ» ºÒ·¯¿À±âÀ§ÇØ ¼³Ä¡
+# pickle íŒŒì¼ì„ ë¶ˆëŸ¬ì˜¤ê¸°ìœ„í•´ ì„¤ì¹˜
 #py_install('pandas')
 #py_install('pickle')
 source_python("read_pickle.py")
@@ -31,17 +34,17 @@ pickle_data <- read_pickle_file("bio1.pickle")
 library(ppls)
 pickle_data <- pickle_data[!(pickle_data$TEMP == 'numeric(0)'),]
 
-# pickle data Áß »ç¿ëÇÏ´Â °¨Á¤¸¸ »Ì¾Æ³¿
+# pickle data ì¤‘ ì‚¬ìš©í•˜ëŠ” ê°ì •ë§Œ ë½‘ì•„ëƒ„
 emotion_data = pickle_data[pickle_data$Emotion == "[0. 0. 0. 1. 0. 0. 0.]" |
                      pickle_data$Emotion == "[1. 0. 0. 0. 0. 0. 0.]"|
                      pickle_data$Emotion == "[0. 1. 0. 0. 0. 0. 0.]"|
                      pickle_data$Emotion == "[0. 0. 1. 0. 0. 0. 0.]"|
                      pickle_data$Emotion == "[0. 0. 0. 0. 0. 0. 1.]",]
 
-# dtwclust¿¡ ³Ö±âÀ§ÇØ vectorÈ­
+# dtwclustì— ë„£ê¸°ìœ„í•´ vectorí™”
 temp_list=lapply(emotion_data$TEMP,as.vector)
 
-# max min scaleÇÔ¼ö¸¦ »õ·Î ÁöÁ¤ - µ¥ÀÌÅÍÀÇ º¯È­°¡ ¾ø´Â °æ¿ì´Â µû·Î ÁöÁ¤
+# max min scaleí•¨ìˆ˜ë¥¼ ìƒˆë¡œ ì§€ì • - ë°ì´í„°ì˜ ë³€í™”ê°€ ì—†ëŠ” ê²½ìš°ëŠ” ë”°ë¡œ ì§€ì •
 normalize = function(x){
   if (min(x)== max(x)){
     result = (x-min(x)) / 1
@@ -52,24 +55,24 @@ normalize = function(x){
   }
 }
 
-# min max scaleÀû¿ë
+# min max scaleì ìš©
 normalized_temp= lapply(temp_list,normalize)
 
 
 library(dtwclust)
 library(cluster)
 
-# Å¬·¯½ºÅÍ°¡ 5°³ÀÏ ¶§ ÁöÁ¤
+# í´ëŸ¬ìŠ¤í„°ê°€ 5ê°œì¼ ë•Œ ì§€ì •
 cluster=tsclust(normalized_temp, k=5L, distance='dtw_basic')
 distance<-dist(normalized_temp, method='dtw_basic')
 
 
 cl = slot(cluster, "cluster")
 
-# Å¬·¯½ºÅÍ°¡ 5°³ÀÏ ¶§ ±ºÁýÈ­ plot
+# í´ëŸ¬ìŠ¤í„°ê°€ 5ê°œì¼ ë•Œ êµ°ì§‘í™” plot
 plot(cluster, type="sc")
 
-# °¢ Å¬·¯½ºÅÍ º° centroid Ãâ·Â
+# ê° í´ëŸ¬ìŠ¤í„° ë³„ centroid ì¶œë ¥
 plot(cluster@centroids[[1]])
 
 plot(cluster@centroids[[2]])
@@ -84,24 +87,24 @@ plot(cluster@centroids[[5]])
 install.packages("factoextra")
 library(factoextra)
 
-# ÃÖÀûÀÇ Å¬·¯½ºÅÍ °³¼ö¸¦ Ã£±â À§ÇØ 2~10±îÁö ¹üÀ§ ¼³Á¤
+# ìµœì ì˜ í´ëŸ¬ìŠ¤í„° ê°œìˆ˜ë¥¼ ì°¾ê¸° ìœ„í•´ 2~10ê¹Œì§€ ë²”ìœ„ ì„¤ì •
 cluster=tsclust(normalized_temp, k=2L:10L, distance='dtw_basic')
 distance<-dist(normalized_temp, method='dtw_basic')
 
-# ½Ç·ç¿§ °è¼ö¸¦ È®ÀÎ        
+# ì‹¤ë£¨ì—£ ê³„ìˆ˜ë¥¼ í™•ì¸        
 sil = silhouette(x=cluster@cluster, dist=distance)
 fviz_silhouette(sil)
 
-# ÃÖÀû Å¬·¯½ºÅÍ¸¦ Ã£±â À§ÇÑ ÆÄ¶ó¹ÌÅÍ È®ÀÎ
+# ìµœì  í´ëŸ¬ìŠ¤í„°ë¥¼ ì°¾ê¸° ìœ„í•œ íŒŒë¼ë¯¸í„° í™•ì¸
 eval_clust<-sapply(cluster,cvi)
 par(mfrow = c(1,2))
 
-# DB index È®ÀÎ - ±Ø¼Ú°ªÀÌ ÃÖÀûÀÇ Å¬·¯½ºÅÍ °³¼ö
+# DB index í™•ì¸ - ê·¹ì†Ÿê°’ì´ ìµœì ì˜ í´ëŸ¬ìŠ¤í„° ê°œìˆ˜
 plot(eval_clust[4,],type="l", main="DB index", xlab="The number of clusters",
      ylab="To Be Minimum",col='red',cex.lab=0.8,cex.main=1,axes=F)
 axis(1,xlim=c(1.5,5.0),cex.axis=0.8)+axis(2,ylim=c(0,10), cex.axis=0.8)
 
-# Sil index È®ÀÎ - ±Ø´ñ°ªÀÌ ÃÖÀûÀÇ Å¬·¯½ºÅÍ °³¼ö
+# Sil index í™•ì¸ - ê·¹ëŒ“ê°’ì´ ìµœì ì˜ í´ëŸ¬ìŠ¤í„° ê°œìˆ˜
 plot(eval_clust[1,],type="l", main="Sil index", xlab="The number of clusters",
      ylab="To Be Maximum",col='red',cex.lab=0.8,cex.main=1,axes=F)
 axis(1,xlim=c(0.1,0.4),cex.axis=0.8)+axis(2,ylim=c(0,10),cex.axis=0.8)
