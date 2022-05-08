@@ -3,7 +3,7 @@
 음성과 텍스트를 기반으로 감정 분류를 예측하기 위한 멀티모달 딥러닝 모델을 구현하였으며, 사람의 발화 음성을 바탕으로 각성도(Arousal)를 예측하는 모델과 발화 텍스트를 바탕으로 긍/부정도(Valence)를 예측하는 모델을 개별적으로 사전학습하여 멀티모달 감정 분류 모델의 성능을 향상시켰습니다.
 
 ----
-### 코드 진행 순서
+### 코드 진행 순서 (Updated (5/8))
   - 1-1.데이터_취합.ipynb를 제외한 모든 jupyter notebook 파일은 Google Colaboratory를 기반으로 작성되었습니다.
   - 따라서, KEMDy20 데이터셋이 존재하는 로컬 디렉토리에서 1-1. 데이터_취합.ipynb를 실행하여 Data_Original.pickle을 생성한 후 나머지 Google Colaboratory 기반으로 작성된 .ipynb가 존재하는 Google Drive 디렉토리에 업로드해야 합니다.
   - 아래 순서에 따라 실행했을 경우 최종 반환되는 Audio-Arousal 모델 / Text-Valence 모델 / Multimodal Emotion Classifier 모델의 .pt 파일은 아래의 링크를 통해 확인 가능합니다.
