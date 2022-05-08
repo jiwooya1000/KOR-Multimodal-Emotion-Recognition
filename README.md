@@ -5,6 +5,7 @@
 ----
 ### 코드 진행 순서
   - 1-1.데이터_취합.ipynb를 제외한 모든 jupyter notebook 파일은 Google Colaboratory를 기반으로 작성되었습니다.
+  - 따라서, KEMDy20 데이터셋이 존재하는 로컬 디렉토리에서 1-1. 데이터_취합.ipynb를 실행하여 Data_Original.pickle을 생성한 후 나머지 .ipynb가 존재하는 Google Drive에 업로드해야 합니다.
 #### 1. Data Preprocessing
         - 1-1. 데이터_취합.ipynb 실행 (Data_Original.pickle 파일 생성)
         - 1-2. 데이터_증강.ipynb 실행 (train_aft_aug_kobert.pickle, valid_tokenized.pickle, test_tokenized.pickle 생성)
