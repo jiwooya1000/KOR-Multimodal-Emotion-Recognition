@@ -9,6 +9,8 @@ _**Multimodal Emotional Recognition Model based on Singlemodal Pretrained Predic
 
 음성과 텍스트를 기반으로 감정 분류를 예측하기 위한 멀티모달 딥러닝 모델을 구현하였으며, 사람의 발화 음성을 바탕으로 각성도(Arousal)를 예측하는 모델과 발화 텍스트를 바탕으로 긍/부정도(Valence)를 예측하는 모델을 개별적으로 사전학습하여 멀티모달 감정 분류 모델의 성능을 향상시켰습니다.
 
+보다 구체적인 분석 과정을 확인하려면, *Multimodal Emotional Recognition Model KOR.pdf*를 참고해주세요.
+
 ----
 ### 코드 진행 순서 (Updated (5/8))
   - 1-1.데이터_취합.ipynb를 제외한 모든 jupyter notebook 파일은 Google Colaboratory를 기반으로 작성되었습니다.
