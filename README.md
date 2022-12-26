@@ -1,5 +1,5 @@
 # KOR-Multimodal-Emotion-Recognition
-2022 휴먼이해 인공지능 논문경진대회 우수상 수상 논문의 코드를 정리한 Repository입니다. 
+2022 휴먼이해 인공지능 논문경진대회 우수상 수상 (논문)[https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11113938&language=ko_KR&hasTopBanner=true]의 코드를 정리한 Repository입니다. 
 
 
 _**각성도 및 긍/부정도의 싱글모달 사전학습 예측 모델 기반 멀티모달 감정인식 모델**_
